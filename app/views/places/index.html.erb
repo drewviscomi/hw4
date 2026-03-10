@@ -1,9 +1,21 @@
-<h1>Places</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1 class="mb-0">Places</h1>
+  <a href="/places/new" class="btn btn-dark">
+    <i class="bi bi-plus-lg me-1"></i> New Place
+  </a>
+</div>
 
-<ul>
+<div class="row row-cols-1 row-cols-md-3 g-4">
   <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
+    <div class="col">
+      <a href="/places/<%= place["id"] %>" class="text-decoration-none">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-dark"><i class="bi bi-geo-alt me-1"></i> <%= place["name"] %></h5>
+            <span class="text-muted small">View entries &rarr;</span>
+          </div>
+        </div>
+      </a>
+    </div>
   <% end %>
-</ul>
-
-<a href="/places/new" class="btn btn-primary">New Place</a>
+</div>
